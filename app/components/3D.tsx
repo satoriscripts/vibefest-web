@@ -1,9 +1,15 @@
 import { useEffect } from "react";
-import { render } from "react-dom";
 import * as THREE from "three";
 
-export default function ThreeD() {
+export default function ThreeJSRender(this: any) {
   useEffect(() => {
+    function onWindowResize() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+
     // === THREE.JS CODE START ===
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(
@@ -12,11 +18,13 @@ export default function ThreeD() {
       0.1,
       1000
     );
-    var renderer = new THREE.WebGLRenderer();
+    var renderer = new THREE.WebGLRenderer({ alpha: true });
+    window.addEventListener("resize", onWindowResize, false);
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+    const container = document.getElementById("container");
+    // document.body.appendChild(renderer.domElement);
     // use ref as a mount point of the Three.js scene instead of the document.body
-    // this.mount.appendChild(renderer.domElement);
+    container?.appendChild(renderer.domElement);
     var geometry = new THREE.BoxGeometry(1, 1, 1);
     var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
     var cube = new THREE.Mesh(geometry, material);
@@ -24,13 +32,25 @@ export default function ThreeD() {
     camera.position.z = 5;
     var animate = function () {
       requestAnimationFrame(animate);
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
+      cube.rotation.x += 0.05;
+      cube.rotation.y += 0.05;
       renderer.render(scene, camera);
     };
     animate();
     // === THREE.JS EXAMPLE CODE END ===
   }, []);
 
-  return <div />;
+  return (
+    <div
+      id="container"
+      style={{
+        width: "100%",
+        height: "100%",
+        position: "fixed",
+        top: "0",
+        left: "0",
+        zIndex: "-1",
+      }}
+    />
+  );
 }

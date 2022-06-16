@@ -13,7 +13,7 @@ import { useState } from "react";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "New Remix App",
+  title: "VIBEFEST「VOL. 2」",
   viewport: "width=device-width,initial-scale=1",
 });
 
@@ -53,6 +53,7 @@ function MantineTheme({ children }: { children: React.ReactNode }) {
       >
         <Global
           styles={(theme) => ({
+            // https://mantine.dev/theming/global-styles/
             a: {
               color:
                 theme.colorScheme === "dark"
