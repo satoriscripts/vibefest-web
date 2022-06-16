@@ -1,4 +1,5 @@
 {
+  "name": "vibefest-web",
   "private": true,
   "sideEffects": false,
   "scripts": {

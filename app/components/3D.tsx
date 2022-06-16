@@ -10,7 +10,6 @@ export default function ThreeJSRender(this: any) {
       renderer.setSize(window.innerWidth, window.innerHeight);
     }
 
-    // === THREE.JS CODE START ===
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(
       75,
@@ -32,12 +31,10 @@ export default function ThreeJSRender(this: any) {
     camera.position.z = 5;
     var animate = function () {
       requestAnimationFrame(animate);
-      cube.rotation.x += 0.05;
-      cube.rotation.y += 0.05;
+      cube.rotation.y += 0.005;
       renderer.render(scene, camera);
     };
     animate();
-    // === THREE.JS EXAMPLE CODE END ===
   }, []);
 
   return (

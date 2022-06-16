@@ -1,5 +1,6 @@
 import type { ColorScheme } from "@mantine/core";
-import { ColorSchemeProvider, MantineProvider, Global } from "@mantine/core";
+import { ColorSchemeProvider, Global, MantineProvider } from "@mantine/core";
+import { useColorScheme } from "@mantine/hooks";
 import type { MetaFunction } from "@remix-run/node";
 import {
   Links,
@@ -10,6 +11,8 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import { useState } from "react";
+
+export const vibefestColor = "#ea3c79";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -37,7 +40,9 @@ export default function App() {
 }
 
 function MantineTheme({ children }: { children: React.ReactNode }) {
-  const [colorScheme, setColorScheme] = useState<ColorScheme>("dark");
+  const preferredColorScheme = useColorScheme();
+  const [colorScheme, setColorScheme] =
+    useState<ColorScheme>(preferredColorScheme);
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
 
@@ -52,29 +57,35 @@ function MantineTheme({ children }: { children: React.ReactNode }) {
         withGlobalStyles
       >
         <Global
-          styles={(theme) => ({
-            // https://mantine.dev/theming/global-styles/
-            a: {
-              color:
-                theme.colorScheme === "dark"
-                  ? theme.colors.dark[0]
-                  : theme.colors.gray[7],
-              textDecoration: "underline",
-
-              "&:hover": {
-                backgroundColor:
-                  theme.colorScheme === "dark"
-                    ? theme.fn.rgba(theme.colors[theme.primaryColor][9], 0.25)
-                    : theme.colors[theme.primaryColor][0],
-                color:
-                  theme.colors[theme.primaryColor][
-                    theme.colorScheme === "dark" ? 3 : 7
-                  ],
-                textDecoration: "none",
-                border: "none",
+          styles={(theme) => [
+            {
+              "@font-face": {
+                fontFamily: "Akira Expanded",
+                src: `url(./fonts/Akira_Expanded.ttf)`,
+                fontWeight: 700,
+                fontStyle: "normal",
               },
             },
-          })}
+            {
+              "h1, h2, h3, h4": {
+                fontFamily: "Akira Expanded",
+                color:
+                  theme.colorScheme === "dark" ? "white" : theme.colors.gray[9],
+              },
+              a: {
+                color:
+                  theme.colorScheme === "dark" ? "white" : theme.colors.gray[9],
+                textDecoration: "underline",
+
+                "&:hover": {
+                  backgroundColor: vibefestColor,
+                  textDecoration: "none",
+                  border: "none",
+                  color: theme.colorScheme === "light" ? "white" : "",
+                },
+              },
+            },
+          ]}
         />
         {children}
       </MantineProvider>
