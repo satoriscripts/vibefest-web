@@ -1,0 +1,34 @@
+{
+  "private": true,
+  "sideEffects": false,
+  "scripts": {
+    "build": "remix build",
+    "dev": "remix dev"
+  },
+  "dependencies": {
+    "@mantine/core": "^4.2.9",
+    "@mantine/hooks": "^4.2.9",
+    "@mantine/ssr": "^4.2.9",
+    "@remix-run/node": "^1.6.0",
+    "@remix-run/react": "^1.6.0",
+    "@remix-run/vercel": "^1.6.0",
+    "@vercel/node": "^2.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tabler-icons-react": "^1.49.0",
+    "three": "^0.141.0"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^1.6.0",
+    "@remix-run/eslint-config": "^1.6.0",
+    "@remix-run/serve": "^1.6.0",
+    "@types/react": "^17.0.45",
+    "@types/react-dom": "^17.0.17",
+    "@types/three": "^0.141.0",
+    "eslint": "^8.15.0",
+    "typescript": "^4.6.4"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
