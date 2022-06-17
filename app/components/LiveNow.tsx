@@ -3,7 +3,12 @@ import { motion } from "framer-motion";
 
 export default function LiveNow({ artist }: { artist?: string }) {
   return (
-    <motion.div>
+    <motion.div
+      //  framer motion fade in down smooth
+      initial={{ opacity: 0, y: -25 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <a
         href="https://twitch.tv/VIBEFESTLIVE"
         style={{

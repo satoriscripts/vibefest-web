@@ -10,18 +10,19 @@
     "@mantine/core": "^4.2.9",
     "@mantine/hooks": "^4.2.9",
     "@mantine/ssr": "^4.2.9",
+    "@prisma/client": "^3.15.2",
     "@remix-run/node": "^1.6.0",
     "@remix-run/react": "^1.6.0",
     "@remix-run/vercel": "^1.6.0",
+    "@twurple/api": "^5.1.6",
+    "@twurple/auth": "^5.1.6",
     "@vercel/node": "^2.0.0",
     "framer-motion": "^6.3.11",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "tabler-icons-react": "^1.49.0",
     "three": "^0.141.0",
-    "three-gltf-loader": "^1.111.0",
-    "twitch": "^4.6.7",
-    "twitch-auth": "^4.6.7"
+    "three-gltf-loader": "^1.111.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.6.0",
@@ -31,6 +32,7 @@
     "@types/react-dom": "^17.0.17",
     "@types/three": "^0.141.0",
     "eslint": "^8.15.0",
+    "prisma": "^3.15.2",
     "typescript": "^4.6.4"
   },
   "engines": {

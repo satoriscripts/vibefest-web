@@ -73,6 +73,12 @@ function MantineTheme({ children }: { children: React.ReactNode }) {
               },
             },
             {
+              ".backgroundHover": {
+                "&:hover": {
+                  backgroundColor: "rgba(0, 0, 0, 0.25)",
+                  transition: "background-color 0.2s ease-in-out",
+                },
+              },
               ".box": {
                 background: "hsl(0, 0%, 100%)",
                 padding: "10px 20px",
