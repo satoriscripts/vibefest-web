@@ -1,11 +1,11 @@
 generator client {
   provider = "prisma-client-js"
-  engineType = "dataproxy"
+  // engineType = "dataproxy"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("REAL_CON_STRING")
 }
 
 model posts {
@@ -15,6 +15,9 @@ model posts {
   markdown String
   slug     String @unique
   title    String
+
+  authorId String
+  author User @relation(fields: [authorId], references: [id])
 
   CreatedAt DateTime @default(now())
   UpdatedAt DateTime @updatedAt
@@ -27,6 +30,7 @@ model User {
   profilePicture String
 
   comments comments[]
+  posts   posts[]
 
   CreatedAt DateTime @default(now())
   UpdatedAt DateTime @updatedAt

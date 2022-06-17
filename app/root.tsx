@@ -25,6 +25,7 @@ const links = [
     link: "/",
     label: "Home",
   },
+  { link: "/news", label: "News" },
 ];
 
 export default function App() {

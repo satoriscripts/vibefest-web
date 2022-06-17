@@ -1,5 +1,6 @@
 import { Container } from "@mantine/core";
 import type { LoaderFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { ApiClient } from "@twurple/api";
 import { ClientCredentialsAuthProvider } from "@twurple/auth";
@@ -21,22 +22,22 @@ export const loader: LoaderFunction = async () => {
 
   //  788286383 = vibefestlive
   //  56648155 = TwitchPlaysPokemon (always live, mean for dev)
-  const stream = await apiClient.helix.streams.getStreamByUserId("56648155");
-  const channelPage = await apiClient.helix.channels.getChannelInfo(
-    "788286383"
-  );
+  let [stream, channelPage] = await Promise.all([
+    apiClient.streams.getStreamByUserId("56648155"),
+    apiClient.channels.getChannelInfoById("788286383"),
+  ]);
   const isLive = stream !== null;
 
   const artist = channelPage?.title.split("|")[1] ?? "";
 
-  return {
+  return json<loaderFunctionData>({
     isLive,
     artist,
-  } as loaderFunctionData;
+  });
 };
 
 export default function IndexPage() {
-  const { isLive, artist } = useLoaderData() as loaderFunctionData;
+  const { isLive, artist } = useLoaderData<loaderFunctionData>();
 
   return (
     <Container>

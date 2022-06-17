@@ -1,5 +1,6 @@
 import { Burger, Container, createStyles, Group, Header } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
+import { Link } from "@remix-run/react";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -52,9 +53,14 @@ export function HeaderSimple({ links }: HeaderSimpleProps) {
   const { classes, cx } = useStyles();
 
   const items = links.map((link) => (
-    <a key={link.label} href={link.link} className={cx(classes.link, {})}>
+    <Link
+      key={link.label}
+      to={link.link}
+      prefetch="intent"
+      className={cx(classes.link, {})}
+    >
       {link.label}
-    </a>
+    </Link>
   ));
 
   return (
