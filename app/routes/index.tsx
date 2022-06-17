@@ -2,7 +2,7 @@ import { Container } from "@mantine/core";
 import type { LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { ApiClient } from "@twurple/api";
-import { ClientCredentialsAuthProvider } from "@twurple/auth/lib";
+import { ClientCredentialsAuthProvider } from "@twurple/auth";
 import ThreeJSRender from "~/components/3D";
 import LiveNow from "~/components/LiveNow";
 import { Spring } from "~/components/Spring";
