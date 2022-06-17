@@ -83,18 +83,20 @@ function MantineTheme({ children }: { children: React.ReactNode }) {
                 "&::after": {
                   position: "absolute",
                   content: `""`,
-                  top: "10px",
+                  // top: "10px",
                   left: 0,
                   right: 0,
                   zIndex: -1,
                   height: "100%",
                   width: "100%",
-                  transform: "scale(0.9) translateZ(0)",
+                  transform: "scale(1) translateZ(0)",
                   filter: "blur(15px)",
                   background:
+                    // v i tried to do different colors here and it didn't work v
+                    // "linear-gradient(to left, #89dcdc, #db9ec8, #ffffff, #db9ec8, #89dcdc, #89dcdc, #db9ec8, #fffffff, #db9ec8)",
                     "linear-gradient(to left, #ff5770, #e4428d, #c42da8, #9e16c3, #6501de, #9e16c3, #c42da8, #e4428d, #ff5770)",
                   backgroundSize: "200% 200%",
-                  animation: "animateGlow 1.25s linear infinite",
+                  animation: "animateGlow 2s linear infinite",
                 },
               },
               "@keyframes animateGlow": {
