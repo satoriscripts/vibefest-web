@@ -11,6 +11,9 @@ export default function ThreeJSRender(this: any) {
     }
 
     var scene = new THREE.Scene();
+    // const loader = new GLTFLoader();
+
+    // loader.load("");
     var camera = new THREE.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
@@ -28,7 +31,7 @@ export default function ThreeJSRender(this: any) {
     var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
     var cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
-    camera.position.z = 5;
+    camera.position.z = 2;
     var animate = function () {
       requestAnimationFrame(animate);
       cube.rotation.y += 0.005;
@@ -46,7 +49,7 @@ export default function ThreeJSRender(this: any) {
         position: "fixed",
         top: "0",
         left: "0",
-        zIndex: "-1",
+        zIndex: "-99999",
       }}
     />
   );
