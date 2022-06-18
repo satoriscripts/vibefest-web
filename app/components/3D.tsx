@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useEffect } from "react";
 import * as THREE from "three";
 
@@ -41,7 +42,10 @@ export default function ThreeJSRender(this: any) {
   }, []);
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.75, ease: "easeInOut" }}
       id="container"
       style={{
         width: "100%",
