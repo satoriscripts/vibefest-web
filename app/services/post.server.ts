@@ -1,6 +1,19 @@
-import type { posts } from "@prisma/client/edge";
-import { PrismaClient } from "@prisma/client/edge";
-export type { posts };
+import type { posts, User } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
+
+export type Posts = {
+  id: string;
+  category: string;
+  imageUrl: string;
+  markdown: string;
+  slug: string;
+  title: string;
+  authorId: string;
+  CreatedAt: Date;
+  UpdatedAt: Date;
+
+  author: User;
+};
 
 const prisma = new PrismaClient();
 
@@ -13,6 +26,9 @@ export async function createPost(
   return prisma.posts.create({
     data: {
       ...post,
+    },
+    include: {
+      author: true,
     },
   });
 }
@@ -30,6 +46,9 @@ export async function getPosts() {
     orderBy: {
       CreatedAt: "desc",
     },
+    include: {
+      author: true,
+    },
   });
 }
 
@@ -37,6 +56,9 @@ export async function getPostsViaAuthorId(authorId: string) {
   return prisma.posts.findMany({
     where: {
       authorId,
+    },
+    include: {
+      author: true,
     },
   });
 }
@@ -46,6 +68,9 @@ export async function getPostViaSlug(slug: string) {
     where: {
       slug,
     },
+    include: {
+      author: true,
+    },
   });
 }
 
@@ -53,6 +78,9 @@ export async function getPostViaId(id: string) {
   return prisma.posts.findFirst({
     where: {
       id,
+    },
+    include: {
+      author: true,
     },
   });
 }
@@ -69,5 +97,8 @@ export async function updatePost(
       id,
     },
     data,
+    include: {
+      author: true,
+    },
   });
 }

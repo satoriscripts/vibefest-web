@@ -1,6 +1,7 @@
 import type { ColorScheme } from "@mantine/core";
 import { ColorSchemeProvider, Global, MantineProvider } from "@mantine/core";
-import type { MetaFunction } from "@remix-run/node";
+import { NotificationsProvider } from "@mantine/notifications";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -8,9 +9,12 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "@remix-run/react";
 import { useState } from "react";
 import { HeaderSimple } from "./components/Header";
+import type { sessionType } from "./global/typings";
+import { authenticator } from "./services/auth.server";
 
 export const vibefestColor = "#ea3c79";
 
@@ -28,7 +32,18 @@ const links = [
   { link: "/news", label: "News" },
 ];
 
+export let loader: LoaderFunction = async ({ request }) => {
+  const session: sessionType = await authenticator.isAuthenticated(request, {});
+
+  if (!session) {
+    return null;
+  }
+
+  return session;
+};
+
 export default function App() {
+  const session = useLoaderData();
   return (
     <html lang="en">
       <head>
@@ -37,8 +52,10 @@ export default function App() {
       </head>
       <body>
         <MantineTheme>
-          <HeaderSimple links={links} />
-          <Outlet />
+          <NotificationsProvider>
+            <HeaderSimple session={session} links={links} />
+            <Outlet />
+          </NotificationsProvider>
         </MantineTheme>
         <ScrollRestoration />
         <Scripts />
@@ -68,7 +85,7 @@ function MantineTheme({ children }: { children: React.ReactNode }) {
             {
               "@font-face": {
                 fontFamily: "Akira Expanded",
-                src: `url(./fonts/Akira_Expanded.ttf)`,
+                src: `url(/fonts/Akira_Expanded.ttf)`,
                 fontWeight: 700,
                 fontStyle: "normal",
               },
@@ -116,12 +133,7 @@ function MantineTheme({ children }: { children: React.ReactNode }) {
                 },
               },
 
-              "h1, h2, h3, h4": {
-                fontFamily: "Akira Expanded",
-                color:
-                  theme.colorScheme === "dark" ? "white" : theme.colors.gray[9],
-              },
-              ".mantine-Text-root": {
+              ".VIBEFEST_FONT": {
                 fontFamily: "Akira Expanded",
                 color:
                   theme.colorScheme === "dark" ? "white" : theme.colors.gray[9],

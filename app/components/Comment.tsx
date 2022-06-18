@@ -1,5 +1,6 @@
 import { Avatar, createStyles, Group, Text } from "@mantine/core";
-import type { User } from "@prisma/client/edge";
+import type { User } from "@prisma/client";
+import { Link } from "@remix-run/react";
 import PrettyDate from "./DateFunction";
 
 const useStyles = createStyles((theme) => ({
@@ -24,10 +25,14 @@ export default function Comment({ CreatedAt, content, user }: CommentProps) {
         <Avatar
           src={user?.profilePicture}
           alt={user?.displayName + "'s profile image."}
-          radius="xl"
+          radius="md"
         />
         <div>
-          <Text size="sm">{user?.displayName}</Text>
+          <Text size="sm">
+            <Link to={`/${user?.username}`} prefetch="intent">
+              {user?.displayName}
+            </Link>
+          </Text>
           <Text size="xs" color="dimmed">
             {PrettyDate(CreatedAt)}
           </Text>

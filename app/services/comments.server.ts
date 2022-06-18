@@ -1,5 +1,5 @@
-import type { comments } from "@prisma/client/edge";
-import { PrismaClient } from "@prisma/client/edge";
+import type { comments } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 export type { comments };
 
 const prisma = new PrismaClient();

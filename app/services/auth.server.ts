@@ -18,8 +18,8 @@ authenticator.use(
       callbackURL:
         process.env.CALLBACK_URL ||
         "http://localhost:3000/auth/twitch/callback",
-      clientID: process.env.CLIENT_ID || "",
-      clientSecret: process.env.CLIENT_SECRET || "",
+      clientID: process.env.TWITCH_CLIENT_ID || "",
+      clientSecret: process.env.TWITCH_SECRET || "",
     },
     async ({ accessToken, refreshToken, extraParams, profile, context }) => {
       return await Promise.resolve({ ...profile });

@@ -1,6 +1,15 @@
-import { Burger, Container, createStyles, Group, Header } from "@mantine/core";
+import {
+  Avatar,
+  Burger,
+  Button,
+  Container,
+  createStyles,
+  Group,
+  Header,
+} from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
 import { Link } from "@remix-run/react";
+import type { HeaderSimpleProps } from "~/global/typings";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -44,11 +53,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-interface HeaderSimpleProps {
-  links: { link: string; label: string }[];
-}
-
-export function HeaderSimple({ links }: HeaderSimpleProps) {
+export function HeaderSimple({ links, session }: HeaderSimpleProps) {
   const [opened, toggleOpened] = useBooleanToggle(false);
   const { classes, cx } = useStyles();
 
@@ -67,7 +72,7 @@ export function HeaderSimple({ links }: HeaderSimpleProps) {
     <Header height={60} mb={120}>
       <Container className={classes.header}>
         <img
-          src="./VibefestFlower.png"
+          src="/VibefestFlower.png"
           alt="The Vibefest logo is a very vibrant flower with neon blue, yellow, and pink colors."
           height="50"
           style={{
@@ -77,6 +82,15 @@ export function HeaderSimple({ links }: HeaderSimpleProps) {
         />
         <Group spacing={5} className={classes.links}>
           {items}
+          {session ? (
+            <>
+              <Avatar src={session.json.profile_image_url} radius="md" />
+            </>
+          ) : (
+            <Button component={Link} to="/login" prefetch="intent">
+              Login
+            </Button>
+          )}
         </Group>
 
         <Burger

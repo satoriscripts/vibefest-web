@@ -45,7 +45,7 @@ export default function IndexPage() {
         {isLive ? <LiveNow artist={artist} /> : ""}
 
         <Spring>
-          <div className="backgroundHover">
+          <div className="backgroundHover VIBEFEST_FONT">
             <h1>VIBEFEST「VOL. 2」</h1>
             <h2>JULY 9TH - JULY 10TH</h2>
             <h3>

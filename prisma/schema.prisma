@@ -1,11 +1,11 @@
 generator client {
   provider = "prisma-client-js"
-  // engineType = "dataproxy"
+  engineType = "dataproxy"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("REAL_CON_STRING")
+  url      = env("DATABASE_URL")
 }
 
 model posts {

@@ -27,7 +27,9 @@ export default function LiveNow({ artist }: { artist?: string }) {
           m="xl"
           p="md"
         >
-          <Text size="xl">🔴 VIBEFEST is LIVE! {artist ?? ""}</Text>
+          <Text className="VIBEFEST_FONT" size="xl">
+            🔴 VIBEFEST is LIVE! {artist ?? ""}
+          </Text>
         </Group>
       </a>
     </motion.div>
