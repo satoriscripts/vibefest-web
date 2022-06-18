@@ -4,7 +4,8 @@
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
-    "dev": "remix dev"
+    "dev": "remix dev",
+    "vercel-build": "prisma generate --data-proxy && remix build"
   },
   "dependencies": {
     "@mantine/core": "^4.2.9",
