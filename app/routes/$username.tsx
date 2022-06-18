@@ -7,8 +7,8 @@ import { admins } from "~/global/constants";
 import type { UserType } from "~/services/user.server";
 import { getUserViaUsername } from "~/services/user.server";
 
-export const loader: LoaderFunction = async ({ params, request }) => {
-  const user = await getUserViaUsername(params.username || "");
+export const loader: LoaderFunction = async ({ params }) => {
+  const user = await getUserViaUsername(params.username?.toLowerCase() || "");
   if (!user) {
     return null;
   }
