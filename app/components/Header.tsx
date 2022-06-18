@@ -6,10 +6,14 @@ import {
   createStyles,
   Group,
   Header,
+  Paper,
+  Transition,
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
 import { Link } from "@remix-run/react";
 import type { HeaderSimpleProps } from "~/global/typings";
+
+const HEADER_HEIGHT = 60;
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -17,6 +21,22 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     height: "100%",
+  },
+
+  dropdown: {
+    position: "absolute",
+    top: HEADER_HEIGHT,
+    left: 0,
+    right: 0,
+    zIndex: 0,
+    borderTopRightRadius: 0,
+    borderTopLeftRadius: 0,
+    borderTopWidth: 0,
+    overflow: "hidden",
+
+    [theme.fn.largerThan("sm")]: {
+      display: "none",
+    },
   },
 
   links: {
@@ -69,7 +89,7 @@ export function HeaderSimple({ links, session }: HeaderSimpleProps) {
   ));
 
   return (
-    <Header height={60} mb={120}>
+    <Header height={HEADER_HEIGHT} mb={120}>
       <Container className={classes.header}>
         <img
           src="/VibefestFlower.png"
@@ -99,6 +119,14 @@ export function HeaderSimple({ links, session }: HeaderSimpleProps) {
           className={classes.burger}
           size="sm"
         />
+
+        <Transition transition="pop-top-right" duration={200} mounted={opened}>
+          {(styles) => (
+            <Paper className={classes.dropdown} withBorder style={styles}>
+              {items}
+            </Paper>
+          )}
+        </Transition>
       </Container>
     </Header>
   );

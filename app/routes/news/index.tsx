@@ -26,7 +26,7 @@ export default function NewsPage() {
 
   return (
     <Container size="lg">
-      {admins.includes(session.json.id) ? (
+      {admins.includes(session?.json.id || "0") ? (
         <>
           <Link to="admin" prefetch="intent">
             admin page
