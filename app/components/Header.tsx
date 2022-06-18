@@ -89,7 +89,7 @@ export function HeaderSimple({ links, session }: HeaderSimpleProps) {
   ));
 
   return (
-    <Header height={HEADER_HEIGHT} mb={120}>
+    <Header height={HEADER_HEIGHT} mb={40}>
       <Container className={classes.header}>
         <img
           src="/VibefestFlower.png"
