@@ -1,5 +1,10 @@
 import type { ColorScheme } from "@mantine/core";
-import { ColorSchemeProvider, Global, MantineProvider } from "@mantine/core";
+import {
+  Button,
+  ColorSchemeProvider,
+  Global,
+  MantineProvider,
+} from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import {
@@ -11,11 +16,13 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "@remix-run/react";
+import type { HelixStream } from "@twurple/api";
+import { ApiClient } from "@twurple/api";
+import { ClientCredentialsAuthProvider } from "@twurple/auth";
 import { useState } from "react";
 import { HeaderSimple } from "./components/Header";
 import type { sessionType } from "./global/typings";
 import { authenticator } from "./services/auth.server";
-
 export const vibefestColor = "#ea3c79";
 
 export const meta: MetaFunction = () => ({
@@ -33,17 +40,42 @@ const links = [
 ];
 
 export let loader: LoaderFunction = async ({ request }) => {
-  const session: sessionType = await authenticator.isAuthenticated(request, {});
+  const clientId = process.env.TWITCH_CLIENT_ID ?? "";
+  const accessToken = process.env.TWITCH_SECRET ?? "";
+
+  const authProvider = new ClientCredentialsAuthProvider(clientId, accessToken);
+  const apiClient = new ApiClient({ authProvider });
+
+  let [session, stream]: [sessionType | null, HelixStream | null] =
+    await Promise.all([
+      authenticator.isAuthenticated(request),
+      apiClient.streams.getStreamByUserId("56648155"),
+    ]);
+
+  const isLive = stream !== null;
 
   if (!session) {
-    return null;
+    return { session: null, isLive };
   }
 
-  return session;
+  return { session, isLive };
 };
 
+function toggleStream() {
+  var x = document.getElementById("stream");
+  if (x) {
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  } else {
+    return;
+  }
+}
+
 export default function App() {
-  const session = useLoaderData();
+  const { session, isLive } = useLoaderData();
   return (
     <html lang="en">
       <head>
@@ -54,6 +86,39 @@ export default function App() {
         <MantineTheme>
           <NotificationsProvider>
             <HeaderSimple session={session} links={links} />
+            {isLive ? (
+              <div
+                className="opacityHover"
+                style={{
+                  position: "fixed",
+                  bottom: 0,
+                  right: 0,
+                  marginRight: "5px",
+                  marginBottom: "5px",
+                }}
+              >
+                <iframe
+                  title="VIBEFEST Twitch Stream"
+                  id="stream"
+                  src="https://player.twitch.tv/?channel=vibefestlive&parent=vibefest-web.vercel.app&muted=true"
+                  height="200"
+                  width="300"
+                  allowFullScreen
+                  style={{
+                    display: "block",
+                  }}
+                />
+                <Button
+                  style={{ float: "right" }}
+                  mt="sm"
+                  onClick={toggleStream}
+                >
+                  Toggle Stream
+                </Button>
+              </div>
+            ) : (
+              ""
+            )}
             <Outlet />
           </NotificationsProvider>
         </MantineTheme>
@@ -95,6 +160,13 @@ function MantineTheme({ children }: { children: React.ReactNode }) {
                 "&:hover": {
                   backgroundColor: "rgba(0, 0, 0, 0.25)",
                   transition: "background-color 0.2s ease-in-out",
+                },
+              },
+              ".opacityHover": {
+                opacity: 0.5,
+                "&:hover": {
+                  opacity: 1,
+                  transition: "opacity 0.2s ease-in-out",
                 },
               },
               ".box": {

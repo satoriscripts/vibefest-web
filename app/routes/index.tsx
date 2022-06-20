@@ -2,6 +2,7 @@ import { Container } from "@mantine/core";
 import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import type { HelixChannel, HelixStream } from "@twurple/api";
 import { ApiClient } from "@twurple/api";
 import { ClientCredentialsAuthProvider } from "@twurple/auth";
 import ThreeJSRender from "~/components/3D";
@@ -22,10 +23,11 @@ export const loader: LoaderFunction = async () => {
 
   //  788286383 = vibefestlive
   //  56648155 = TwitchPlaysPokemon (always live, mean for dev)
-  let [stream, channelPage] = await Promise.all([
-    apiClient.streams.getStreamByUserId("56648155"),
-    apiClient.channels.getChannelInfoById("788286383"),
-  ]);
+  let [stream, channelPage]: [HelixStream | null, HelixChannel | null] =
+    await Promise.all([
+      apiClient.streams.getStreamByUserId("56648155"),
+      apiClient.channels.getChannelInfoById("788286383"),
+    ]);
   const isLive = stream !== null;
 
   const artist = channelPage?.title.split("|")[1] ?? "";
