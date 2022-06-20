@@ -1,4 +1,4 @@
-import { Group, Text } from "@mantine/core";
+import { Center, Group, Text } from "@mantine/core";
 import { motion } from "framer-motion";
 
 export default function LiveNow({ artist }: { artist?: string }) {
@@ -32,6 +32,16 @@ export default function LiveNow({ artist }: { artist?: string }) {
           </Text>
         </Group>
       </a>
+
+      <Center>
+        <iframe
+          title="VIBEFEST Twitch Stream"
+          src="https://player.twitch.tv/?channel=vibefestlive&parent=vibefest-web.vercel.app&muted=true"
+          height="200"
+          width="500"
+          allowFullScreen
+        />
+      </Center>
     </motion.div>
   );
 }
