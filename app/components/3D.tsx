@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import * as THREE from "three";
+import { GLTFLoader } from "../GLTFLoader";
+import { OrbitControls } from "../OrbitControls";
 
 export default function ThreeJSRender(this: any) {
   useEffect(() => {
@@ -12,9 +14,8 @@ export default function ThreeJSRender(this: any) {
     }
 
     var scene = new THREE.Scene();
-    // const loader = new GLTFLoader();
+    var loader = new GLTFLoader();
 
-    // loader.load("");
     var camera = new THREE.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
@@ -28,17 +29,36 @@ export default function ThreeJSRender(this: any) {
     // document.body.appendChild(renderer.domElement);
     // use ref as a mount point of the Three.js scene instead of the document.body
     container?.appendChild(renderer.domElement);
-    var geometry = new THREE.BoxGeometry(1, 1, 1);
-    var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    var cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
-    camera.position.z = 2;
-    var animate = function () {
-      requestAnimationFrame(animate);
-      cube.rotation.y += 0.005;
-      renderer.render(scene, camera);
-    };
-    animate();
+    // var geometry = new THREE.BoxGeometry(1, 1, 1);
+    // var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    // var cube = new THREE.Mesh(geometry, material);
+    // scene.add(cube);
+    camera.position.z = -20;
+    camera.position.y = 20;
+    renderer.physicallyCorrectLights = true;
+
+    var controls = new OrbitControls(camera, renderer.domElement);
+    controls.autoRotate = true;
+
+    // @ts-ignore
+    loader.load("/vibefest_flower.glb", function (gltf) {
+      var flower = gltf.scene;
+      flower.position.set(-25, -1 - 3);
+      flower.scale.set(1, 1, 1);
+      scene.add(flower);
+
+      var animate = function () {
+        requestAnimationFrame(animate);
+        // flower.rotation.y += 0.005;
+        // camera.position.x += 0.05;
+        // camera.position.z += 0.05;
+        // @ts-ignore
+        controls.update();
+
+        renderer.render(scene, camera);
+      };
+      animate();
+    });
   }, []);
 
   return (

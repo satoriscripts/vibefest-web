@@ -49,7 +49,7 @@ export let loader: LoaderFunction = async ({ request }) => {
   let [session, stream]: [sessionType | null, HelixStream | null] =
     await Promise.all([
       authenticator.isAuthenticated(request),
-      apiClient.streams.getStreamByUserId("56648155"),
+      apiClient.streams.getStreamByUserId("788286383"),
     ]);
 
   const isLive = stream !== null;

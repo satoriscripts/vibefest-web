@@ -25,7 +25,7 @@ export const loader: LoaderFunction = async () => {
   //  56648155 = TwitchPlaysPokemon (always live, mean for dev)
   let [stream, channelPage]: [HelixStream | null, HelixChannel | null] =
     await Promise.all([
-      apiClient.streams.getStreamByUserId("56648155"),
+      apiClient.streams.getStreamByUserId("788286383"),
       apiClient.channels.getChannelInfoById("788286383"),
     ]);
   const isLive = stream !== null;
