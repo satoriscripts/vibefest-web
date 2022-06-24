@@ -52,13 +52,7 @@ export let loader: LoaderFunction = async ({ request }) => {
       apiClient.streams.getStreamByUserId("788286383"),
     ]);
 
-  const isLive = stream !== null;
-
-  if (!session) {
-    return { session: null, isLive };
-  }
-
-  return { session, isLive };
+  return { session, isLive: stream !== null };
 };
 
 function toggleStream() {

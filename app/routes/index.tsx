@@ -57,6 +57,9 @@ export default function IndexPage() {
               AND{" "}
               <a href="https://twitch.tv/VIBEFESTLIVE">STREAMED ON TWITCH</a>
             </h3>
+            <h4>
+              <a href="https://vibefest.store">CHARITY MERCH AVAILABLE</a>
+            </h4>
           </div>
         </Spring>
       </div>
