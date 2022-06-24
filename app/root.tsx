@@ -37,6 +37,7 @@ const links = [
     label: "Home",
   },
   { link: "/news", label: "News" },
+  { link: "/stream", label: "Stream" },
 ];
 
 export let loader: LoaderFunction = async ({ request }) => {

@@ -97,7 +97,7 @@ export function ArticleCardImage({
               ""
             )}
           </Group>
-          <Title order={3} className={classes.title + " VIBEFEST_FONT"}>
+          <Title order={3} className={classes.title}>
             {title}
           </Title>
         </div>
