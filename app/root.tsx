@@ -29,6 +29,18 @@ export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "VIBEFEST「VOL. 2」",
   viewport: "width=device-width,initial-scale=1",
+
+  // Twitter Card
+  "twitter:card": "summary",
+  "twitter:site": "@VIBEFEST22",
+  "twitter:title": "VIBEFEST「VOL. 2」",
+  "twitter:description": "VIBEFEST「VOL. 2」",
+
+  // Open Graph Tags
+  "og:title": "VIBEFEST「VOL. 2」",
+  "og:description": "VIBEFEST「VOL. 2」",
+  "og:type": "website",
+  "og:url": "https://vibefest.live",
 });
 
 const links = [
@@ -75,6 +87,7 @@ export default function App() {
     <html lang="en">
       <head>
         <Meta />
+        <meta name="theme-color" content="#e84270" media="not screen" />
         <Links />
       </head>
       <body>
