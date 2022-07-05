@@ -50,6 +50,7 @@ const links = [
   },
   { link: "/news", label: "News" },
   { link: "/stream", label: "Stream" },
+  { link: "/guestbook", label: "Guestbook" },
 ];
 
 export let loader: LoaderFunction = async ({ request }) => {

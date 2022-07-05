@@ -31,6 +31,7 @@ model User {
 
   comments comments[]
   posts   posts[]
+  guestBookComments guestBookComments[]
 
   CreatedAt DateTime @default(now())
   UpdatedAt DateTime @updatedAt
@@ -40,6 +41,17 @@ model comments {
   id String @id @default(cuid())
 
   parentPostId String
+
+  content String
+  userId  String  
+  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  CreatedAt DateTime @default(now())
+  UpdatedAt DateTime @updatedAt
+}
+
+model guestBookComments {
+  id String @id @default(cuid())
 
   content String
   userId  String  
