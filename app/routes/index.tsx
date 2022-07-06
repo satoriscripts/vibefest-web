@@ -54,6 +54,17 @@ export default function IndexPage() {
             <h4>
               <a href="https://vibefest.store">CHARITY MERCH AVAILABLE</a>
             </h4>
+            <h2>FEATURING:</h2>
+            <p>
+              aila / airkicks / aj / atham / blue skies / c1dbc / currly / dj
+              goob / doda / el wiwi / exxo / flatroom / fluorescent sky /
+              foliege / Gladboi / gurg / halfway through omega / hatsune miku /
+              herrroxx / hoober / huma b2b tan pham / ima / jess!e / lake /
+              lucas / mind's sky (dj set) / pathseiectoor B2B technic-angle /
+              home, elsewhere / purity star / sammythefish / SECRET DJ / self /
+              shifting perspectives / shitposter robinson / subskile /
+              rennocence / troileuk / velaspace / wonderrxjr / wyldworld
+            </p>
           </div>
           <img
             src="/poster.webp"
