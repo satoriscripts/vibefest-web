@@ -55,6 +55,12 @@ export default function IndexPage() {
               <a href="https://vibefest.store">CHARITY MERCH AVAILABLE</a>
             </h4>
           </div>
+          <img
+            src="/poster.webp"
+            alt="The Vibefest volume 2 lineup poster!"
+            width="50%"
+            className="opacityHover"
+          />
         </Spring>
       </div>
       <ThreeJSRender />
