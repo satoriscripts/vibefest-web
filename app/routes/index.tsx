@@ -1,7 +1,7 @@
 import { Container } from "@mantine/core";
 import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import { ApiClient } from "@twurple/api";
 import { ClientCredentialsAuthProvider } from "@twurple/auth";
 import ThreeJSRender from "~/components/3D";
@@ -52,7 +52,9 @@ export default function IndexPage() {
               <a href="https://twitch.tv/VIBEFESTLIVE">STREAMED ON TWITCH</a>
             </h3>
             <h4>
-              <a href="https://vibefest.store">CHARITY MERCH AVAILABLE</a>
+              <Link to="/donate" prefetch="intent">
+                CHARITY DONATIONS!
+              </Link>
             </h4>
             <h2>FEATURING:</h2>
             <p>

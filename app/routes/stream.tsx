@@ -1,6 +1,6 @@
 import { Button, Collapse, Container } from "@mantine/core";
 import type { LoaderFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import type { HelixStream } from "@twurple/api";
 import { ApiClient } from "@twurple/api";
 import { ClientCredentialsAuthProvider } from "@twurple/auth";
@@ -158,6 +158,17 @@ export default function StreamPage() {
           width="100%"
           onVideoPause={() => console.log(":(")}
         />
+
+        <br />
+
+        <h1> VIBEFEST DONATIONS </h1>
+        <p>
+          WE ARE RAISING MONEY FOR 4 DIFFERENT CAUSES, CHECK OUT THE{" "}
+          <Link to="/donate" prefetch="intent">
+            DONATION PAGE
+          </Link>{" "}
+          FOR MORE INFORMATION
+        </p>
 
         <br />
 
