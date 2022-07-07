@@ -35,12 +35,14 @@ export const meta: MetaFunction = () => ({
   "twitter:site": "@VIBEFEST22",
   "twitter:title": "VIBEFEST「VOL. 2」",
   "twitter:description": "VIBEFEST「VOL. 2」",
+  "twitter:image": "https://vibefest.live/VibefestFlower.png",
 
   // Open Graph Tags
   "og:title": "VIBEFEST「VOL. 2」",
   "og:description": "VIBEFEST「VOL. 2」",
   "og:type": "website",
   "og:url": "https://vibefest.live",
+  "og:image": "https://vibefest.live/VibefestFlower.png",
 });
 
 const links = [
