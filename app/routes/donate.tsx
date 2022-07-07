@@ -6,7 +6,7 @@ export default function DonatePage() {
       cause: "The Trevor Project",
       description:
         "The Trevor Project is the world’s largest suicide prevention and crisis intervention organization for LGBTQ young people.",
-      trace: "Your Money --> The Trevor Project",
+      trace: "Your Money ➡️ The Trevor Project",
       link: "https://donate.tiltify.com/+vibefestvol-2/vibefest2",
     },
     {
@@ -14,7 +14,7 @@ export default function DonatePage() {
       description:
         'Lake is one of the festival\'s founders, and had an insane set at VIBEFEST Volume 1. However, due to computer issues, they were unable to finish their new set they were planning to debut at Volume 2. So we are going to raise money to get them a new computer! If you like "Break Free" in Volume 1 and wanna help Lake, any amount would help!',
       trace:
-        "Your Money --> mmatt's (one of the festival staff) PayPal --> Lake.",
+        "Your Money ➡️ mmatt's (one of the festival staff) PayPal ➡️ Lake.",
       link: "https://streamelements.com/vibefestlive/tip",
     },
     {
@@ -22,7 +22,7 @@ export default function DonatePage() {
       description:
         "The Robinson Malawi fund is a charity organization focused on raising money to improve outcomes for pediatric Burkitt's Lymphoma patients in Malawi through direct patient care.",
       trace:
-        "Your Money --> Teespring --> Our PayPal --> The Robinson Malawi Fund",
+        "Your Money ➡️ Teespring ➡️ Our PayPal ➡️ The Robinson Malawi Fund",
       link: "https://vibefest.creator-spring.com/",
     },
     {
@@ -31,7 +31,7 @@ export default function DonatePage() {
         <a href="https://coloncancercoalition.org/about/">About Page</a>
       ),
       trace:
-        "Your Money --> Teespring --> Our PayPal --> The Colon Cancer Foundation",
+        "Your Money ➡️ Teespring ➡️ Our PayPal ➡️ The Colon Cancer Foundation",
       link: "https://vibefest.creator-spring.com/",
     },
   ];
