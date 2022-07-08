@@ -58,7 +58,7 @@ export default function IndexPage() {
             </h4>
             <h2>FEATURING:</h2>
             <p>
-              aila / airkicks / aj / atham / blue skies / c1dbc / currly / dj
+              aila / airkicks / aj / atham / blue skies / c1bdc / currly / dj
               goob / doda / el wiwi / exxo / flatroom / fluorescent sky /
               foliege / Gladboi / gurg / halfway through omega / hatsune miku /
               herrroxx / hoober / huma b2b tan pham / ima / jess!e / lake /
