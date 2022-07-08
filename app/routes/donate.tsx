@@ -9,14 +9,14 @@ export default function DonatePage() {
       trace: "Your Money ➡️ The Trevor Project",
       link: "https://donate.tiltify.com/+vibefestvol-2/vibefest2",
     },
-    {
-      cause: "The VIBEFEST fundraiser for Lake",
-      description:
-        'Lake is one of the festival\'s founders, and had an insane set at VIBEFEST Volume 1. However, due to computer issues, they were unable to finish their new set they were planning to debut at Volume 2. So we are going to raise money to get them a new computer! If you like "Break Free" in Volume 1 and wanna help Lake, any amount would help!',
-      trace:
-        "Your Money ➡️ mmatt's (one of the festival staff) PayPal ➡️ Lake.",
-      link: "https://streamelements.com/vibefestlive/tip",
-    },
+    // {
+    //   cause: "The VIBEFEST fundraiser for Lake",
+    //   description:
+    //     'Lake is one of the festival\'s founders, and had an insane set at VIBEFEST Volume 1. However, due to computer issues, they were unable to finish their new set they were planning to debut at Volume 2. So we are going to raise money to get them a new computer! If you like "Break Free" in Volume 1 and wanna help Lake, any amount would help!',
+    //   trace:
+    //     "Your Money ➡️ mmatt's (one of the festival staff) PayPal ➡️ Lake.",
+    //   link: "https://streamelements.com/vibefestlive/tip",
+    // },
     {
       cause: "The Robinson Malawi Fund",
       description:

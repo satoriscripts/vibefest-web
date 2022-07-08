@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "../GLTFLoader";
+import { MeshoptDecoder } from "../meshopt_decoder.module";
 import { OrbitControls } from "../OrbitControls";
 
 export default function ThreeJSRender(this: any) {
@@ -14,7 +15,9 @@ export default function ThreeJSRender(this: any) {
     }
 
     var scene = new THREE.Scene();
-    var loader = new GLTFLoader();
+    var loader = new GLTFLoader()
+      .setCrossOrigin("anonymous")
+      .setMeshoptDecoder(MeshoptDecoder);
 
     var camera = new THREE.PerspectiveCamera(
       75,
@@ -35,16 +38,20 @@ export default function ThreeJSRender(this: any) {
     // scene.add(cube);
     camera.position.z = -20;
     camera.position.y = 20;
-    renderer.physicallyCorrectLights = true;
+    renderer.physicallyCorrectLights = false;
+    renderer.outputEncoding = THREE.sRGBEncoding;
+
+    var light = new THREE.AmbientLight(0xffffff);
+    scene.add(light);
 
     var controls = new OrbitControls(camera, renderer.domElement);
     controls.autoRotate = true;
 
     // @ts-ignore
-    loader.load("/vibefest_flower.glb", function (gltf) {
-      var flower = gltf.scene;
-      flower.position.set(-25, -1 - 3);
-      flower.scale.set(1, 1, 1);
+    loader.load("/vibefest_flower.gltf", function (gltf) {
+      const flower = gltf.scene;
+
+      flower.scale.set(2, 2, 2);
       scene.add(flower);
 
       var animate = function () {
