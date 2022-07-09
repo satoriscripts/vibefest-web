@@ -45,7 +45,8 @@ export const loader: LoaderFunction = async () => {
 
   return {
     isLive: stream !== null,
-    stream,
+    stream: stream,
+    streamTitle: stream?.title,
     recentDonations: recentDonationsData,
     tiltifyCampaign: tiltifyCampaignData,
   };
@@ -61,96 +62,98 @@ export type Donation = {
 };
 
 export default function StreamPage() {
-  const { isLive, stream, recentDonations, tiltifyCampaign } = useLoaderData<{
-    isLive: boolean;
-    stream: HelixStream | null;
-    recentDonations: {
-      meta: {
-        status: number;
+  const { isLive, stream, streamTitle, recentDonations, tiltifyCampaign } =
+    useLoaderData<{
+      isLive: boolean;
+      stream: HelixStream | null;
+      streamTitle: string | null;
+      recentDonations: {
+        meta: {
+          status: number;
+        };
+        data: Donation[];
+        links: {
+          prev: string;
+          next: string;
+          self: string;
+        };
       };
-      data: Donation[];
-      links: {
-        prev: string;
-        next: string;
-        self: string;
-      };
-    };
 
-    tiltifyCampaign: {
-      meta: {
-        status: number;
-      };
-      data: {
-        id: number;
-        name: string;
-        slug: string;
-        url: string;
-        startsAt: number;
-        endsAt: number;
-        description: string;
-        avatar: {
-          src: string;
-          alt: string;
-          width: number;
-          height: number;
+      tiltifyCampaign: {
+        meta: {
+          status: number;
         };
-        causeId: number;
-        fundraisingEventId: number;
-        fundraiserGoalAmount: number;
-        originalGoalAmount: number;
-        amountRaised: number;
-        supportingAmountRaised: number;
-        totalAmountRaised: number;
-        supportable: boolean;
-        status: string;
-        user: {
+        data: {
           id: number;
-          username: string;
+          name: string;
           slug: string;
           url: string;
+          startsAt: number;
+          endsAt: number;
+          description: string;
           avatar: {
             src: string;
             alt: string;
             width: number;
             height: number;
           };
-        };
-        team: {
-          id: number;
-          username: string;
-          slug: string;
-          url: string;
-          avatar: {
-            src: string;
-            alt: string;
-            width: number;
-            height: number;
+          causeId: number;
+          fundraisingEventId: number;
+          fundraiserGoalAmount: number;
+          originalGoalAmount: number;
+          amountRaised: number;
+          supportingAmountRaised: number;
+          totalAmountRaised: number;
+          supportable: boolean;
+          status: string;
+          user: {
+            id: number;
+            username: string;
+            slug: string;
+            url: string;
+            avatar: {
+              src: string;
+              alt: string;
+              width: number;
+              height: number;
+            };
+          };
+          team: {
+            id: number;
+            username: string;
+            slug: string;
+            url: string;
+            avatar: {
+              src: string;
+              alt: string;
+              width: number;
+              height: number;
+            };
+          };
+          livestream: {
+            type: string;
+            channel: string;
           };
         };
-        livestream: {
-          type: string;
-          channel: string;
-        };
       };
-    };
-  }>();
+    }>();
   const [opened, setOpen] = useState(false);
 
   const artist = () => {
     try {
       if (!stream) return "";
       else {
-        return stream.title.split("|")[1];
+        return streamTitle?.split("|")[1];
       }
     } catch (e) {
-      return "";
+      return `${e}`;
     }
   };
 
   if (isLive) {
     return (
       <Container size="xl" mb="xl">
-        <PlayingArtist artist={artist()} />
+        <PlayingArtist artist={artist() ?? ""} />
         <TwitchEmbed
           channel="vibefestlive"
           id="vibefestlive"
