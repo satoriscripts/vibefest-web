@@ -195,24 +195,26 @@ export default function StreamPage() {
         </Button>
 
         <Collapse in={opened}>
-          {recentDonations.data.length >= 1 ? (
-            recentDonations.data.map((donation: Donation) => (
-              <div key={donation.id}>
-                <p>{donation.name}</p>
-                <p>{donation.comment}</p>
-                <p>{donation.amount}</p>
-              </div>
-            ))
-          ) : (
-            <p>
-              No donations yet! (or it just didn't work, I'm not sure! ping
-              @mmattbtw in chat if you donated and it showed up on stream and
-              not in here) Either way,{" "}
-              <a href="https://donate.tiltify.com/+vibefestvol-2/vibefest2">
-                donate NOW!
-              </a>
-            </p>
-          )}
+          <ul>
+            {recentDonations.data.length >= 1 ? (
+              recentDonations.data.map((donation: Donation) => (
+                <li key={donation.id}>
+                  <p>
+                    [${donation.amount}] {donation.name} - {donation.comment}
+                  </p>
+                </li>
+              ))
+            ) : (
+              <p>
+                No donations yet! (or it just didn't work, I'm not sure! ping
+                @mmattbtw in chat if you donated and it showed up on stream and
+                not in here) Either way,{" "}
+                <a href="https://donate.tiltify.com/+vibefestvol-2/vibefest2">
+                  donate NOW!
+                </a>
+              </p>
+            )}
+          </ul>
         </Collapse>
 
         <h2>
