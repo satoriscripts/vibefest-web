@@ -1,11 +1,10 @@
-import { Button, Collapse, Container } from "@mantine/core";
+import { Container } from "@mantine/core";
 import type { LoaderFunction } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import type { HelixStream } from "@twurple/api";
 import { ApiClient } from "@twurple/api";
 import { ClientCredentialsAuthProvider } from "@twurple/auth";
 import { useState } from "react";
-import Iframe from "react-iframe-click";
 
 // @ts-ignore creator didn't include types `@types/react-twitch-embed` >:( i also dont think that they maintain it anymore sooooooooo!!!!!!!!
 import { TwitchEmbed } from "react-twitch-embed";
@@ -165,7 +164,7 @@ export default function StreamPage() {
         <br />
 
         <h1> VIBEFEST DONATIONS </h1>
-        <p>
+        {/* <p>
           WE ARE RAISING MONEY FOR 4 DIFFERENT CAUSES, CHECK OUT THE{" "}
           <Link to="/donate" prefetch="intent">
             DONATION PAGE
@@ -238,13 +237,13 @@ export default function StreamPage() {
           }}
         />
 
-        <br />
+        <br /> */}
       </Container>
     );
   } else {
     return (
       <Container style={{ textAlign: "center" }}>
-        <h1 className="VIBEFEST_FONT">VIBEFEST「VOL. 2」 isn't live yet!</h1>
+        <h1 className="VIBEFEST_FONT">VIBEFEST「VOL. 3」 isn't live yet!</h1>
         <p>Come back later!</p>
         <p>
           <a href="https://twitch.tv/vibefestlive">Follow the Twitch</a> and{" "}

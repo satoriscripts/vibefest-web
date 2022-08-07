@@ -27,19 +27,19 @@ export const vibefestColor = "#ea3c79";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "VIBEFEST「VOL. 2」",
+  title: "VIBEFEST",
   viewport: "width=device-width,initial-scale=1",
 
   // Twitter Card
   "twitter:card": "summary",
   "twitter:site": "@VIBEFEST22",
-  "twitter:title": "VIBEFEST「VOL. 2」",
-  "twitter:description": "VIBEFEST「VOL. 2」",
+  "twitter:title": "VIBEFEST",
+  "twitter:description": "VIBEFEST",
   "twitter:image": "https://vibefest.live/VibefestFlower.png",
 
   // Open Graph Tags
-  "og:title": "VIBEFEST「VOL. 2」",
-  "og:description": "VIBEFEST「VOL. 2」",
+  "og:title": "VIBEFEST",
+  "og:description": "VIBEFEST",
   "og:type": "website",
   "og:url": "https://vibefest.live",
   "og:image": "https://vibefest.live/VibefestFlower.png",
@@ -53,7 +53,7 @@ const links = [
   { link: "/news", label: "News" },
   { link: "/stream", label: "Stream" },
   { link: "/guestbook", label: "Guestbook" },
-  { link: "/donate", label: "Donate" },
+  // { link: "/donate", label: "Donate" },
 ];
 
 export let loader: LoaderFunction = async ({ request }) => {

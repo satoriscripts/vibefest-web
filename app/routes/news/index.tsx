@@ -36,9 +36,7 @@ export default function NewsPage() {
         ""
       )}
       <h1 className="VIBEFEST_FONT">VIBEFEST NEWS</h1>
-      <h2 className="VIBEFEST_FONT">
-        Relevant news for the upcoming VIBEFEST 「VOL. 2」 event.
-      </h2>
+      <h2 className="VIBEFEST_FONT">Relevant news for VIBEFEST events.</h2>
 
       {postsExist ? (
         <Grid>
