@@ -75,7 +75,7 @@ export default function IndexPage() {
               <p>broken screen</p>
               <p>velaspace</p>
               <p>c0d3 (DJ SET)</p>
-              <p>Lake</p>
+              <p>LAKE</p>
               <p>gurg</p>
             </p>
           </div>

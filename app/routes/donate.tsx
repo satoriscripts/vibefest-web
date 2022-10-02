@@ -10,10 +10,10 @@ export default function DonatePage() {
     //   link: "https://donate.tiltify.com/+vibefestvol-2/vibefest2",
     // },
     {
-      cause: "The VIBEFEST fundraiser for Lake",
+      cause: "The VIBEFEST fundraiser for LAKE",
       description:
-        'Lake is one of the festival\'s founders, and had an insane set at VIBEFEST Volume 1. However, due to computer issues, they were unable to finish their new set they were planning to debut at Volume 2. So we are going to raise money to get them a new computer! If you like "Break Free" in Volume 1 and wanna help Lake, anything would help! And you get some merch!!',
-      trace: "Your Money ➡️ Teespring ➡️ Our PayPal ➡️ Lake!",
+        'LAKE is one of the festival\'s founders, and had an insane set at VIBEFEST Volume 1. However, due to computer issues, they were unable to finish their new set they were planning to debut at Volume 2. So we are going to raise money to get them a new computer! If you like "Break Free" in Volume 1 and wanna help LAKE, anything would help! And you get some merch!!',
+      trace: "Your Money ➡️ Teespring ➡️ Our PayPal ➡️ LAKE!",
       link: "https://vibefest.creator-spring.com/",
     },
     // {
