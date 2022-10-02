@@ -1,5 +1,11 @@
 import { Container } from "@mantine/core";
+import type { LoaderFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+import { ApiClient } from "@twurple/api";
+import { ClientCredentialsAuthProvider } from "@twurple/auth";
 import ThreeJSRender from "~/components/3D";
+import LiveNow from "~/components/LiveNow";
 import { Spring } from "~/components/Spring";
 
 type loaderFunctionData = {
@@ -7,32 +13,33 @@ type loaderFunctionData = {
   artist: string;
 };
 
-// export const loader: LoaderFunction = async () => {
-//   const clientId = process.env.TWITCH_CLIENT_ID ?? "";
-//   const accessToken = process.env.TWITCH_SECRET ?? "";
+export const loader: LoaderFunction = async () => {
+  const clientId = process.env.TWITCH_CLIENT_ID ?? "";
+  const accessToken = process.env.TWITCH_SECRET ?? "";
 
-//   const authProvider = new ClientCredentialsAuthProvider(clientId, accessToken);
-//   const apiClient = new ApiClient({ authProvider });
+  const authProvider = new ClientCredentialsAuthProvider(clientId, accessToken);
+  const apiClient = new ApiClient({ authProvider });
 
-//   //  788286383 = vibefestlive
-//   //  56648155 = TwitchPlaysPokemon (always live, mean for dev)
-//   const stream = await apiClient.streams.getStreamByUserId("788286383");
-//   const isLive = stream !== null;
-//   const artist = stream?.title.split("|")[1] ?? "";
+  //  788286383 = vibefestlive
+  //  56648155 = TwitchPlaysPokemon (always live, mean for dev)
+  const stream = await apiClient.streams.getStreamByUserId("788286383");
+  const isLive = stream !== null;
+  const artist = stream?.title.split("|")[1] ?? "";
+  console.log(isLive);
 
-//   return json<loaderFunctionData>({
-//     isLive,
-//     artist,
-//   });
-// };
+  return json<loaderFunctionData>({
+    isLive,
+    artist,
+  });
+};
 
 export default function IndexPage() {
-  // const { isLive, artist } = useLoaderData<loaderFunctionData>();
+  const { isLive, artist } = useLoaderData<loaderFunctionData>();
 
   return (
     <Container>
       <div style={{ textAlign: "center" }}>
-        {/* {isLive ? <LiveNow artist={artist} /> : ""} */}
+        {isLive ? <LiveNow artist={artist} /> : ""}
 
         <Spring>
           <div className="backgroundHover VIBEFEST_FONT">

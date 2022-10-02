@@ -23,6 +23,9 @@ import { useState } from "react";
 import { HeaderSimple } from "./components/Header";
 import type { sessionType } from "./global/typings";
 import { authenticator } from "./services/auth.server";
+// @ts-ignore creator didn't include types `@types/react-twitch-embed` >:( i also dont think that they maintain it anymore sooooooooo!!!!!!!!
+import { TwitchPlayer } from "react-twitch-embed";
+
 export const vibefestColor = "#ea3c79";
 
 export const meta: MetaFunction = () => ({
@@ -109,15 +112,15 @@ export default function App() {
                   marginBottom: "5px",
                 }}
               >
-                <iframe
-                  title="VIBEFEST Twitch Stream"
-                  id="stream"
-                  src="https://player.twitch.tv/?channel=vibefestlive&parent=vibefest-web.vercel.app&muted=true"
-                  height="200"
+                <TwitchPlayer
+                  channel="vibefestlive"
+                  theme="dark"
                   width="300"
-                  allowFullScreen
+                  height="200"
+                  id="stream"
+                  onVideoPause={() => console.log(":(")}
                   style={{
-                    display: "block",
+                    display: "Block",
                   }}
                 />
                 <Button

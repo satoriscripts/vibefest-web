@@ -1,6 +1,9 @@
 import { Center, Group, Text } from "@mantine/core";
 import { motion } from "framer-motion";
 
+// @ts-ignore creator didn't include types `@types/react-twitch-embed` >:( i also dont think that they maintain it anymore sooooooooo!!!!!!!!
+import { TwitchPlayer } from "react-twitch-embed";
+
 export default function LiveNow({ artist }: { artist?: string }) {
   return (
     <motion.div
@@ -34,12 +37,12 @@ export default function LiveNow({ artist }: { artist?: string }) {
       </a>
 
       <Center>
-        <iframe
-          title="VIBEFEST Twitch Stream"
-          src="https://player.twitch.tv/?channel=vibefestlive&parent=vibefest-web.vercel.app&muted=true"
-          height="200"
-          width="500"
-          allowFullScreen
+        <TwitchPlayer
+          channel="vibefestlive"
+          id="vibefestlive"
+          theme="dark"
+          width="100%"
+          onVideoPause={() => console.log(":(")}
         />
       </Center>
     </motion.div>
