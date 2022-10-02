@@ -64,7 +64,7 @@ export default function IndexPage() {
               <p>self</p>
               <p>lost vco</p>
               <p>inverted</p>
-              <p>saix</p>
+              <p>saix (DJ SET)</p>
               <p>broken screen</p>
               <p>velaspace</p>
               <p>c0d3</p>

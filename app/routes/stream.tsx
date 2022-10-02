@@ -247,9 +247,7 @@ export default function StreamPage() {
         <p>Come back later!</p>
         <p>
           <a href="https://twitch.tv/vibefestlive">Follow the Twitch</a> and{" "}
-          <a href="https://vrchat.com/home/user/usr_622720da-7685-4595-b0b1-5574497b7d60">
-            add "VIBEFEST" in game!
-          </a>
+          <a href="https://discord.gg/9rJ5RKvn2J">Join the Discord!</a>
         </p>
       </Container>
     );
