@@ -53,7 +53,7 @@ const links = [
   { link: "/news", label: "News" },
   { link: "/stream", label: "Stream" },
   { link: "/guestbook", label: "Guestbook" },
-  // { link: "/donate", label: "Donate" },
+  { link: "/donate", label: "Donate" },
 ];
 
 export let loader: LoaderFunction = async ({ request }) => {

@@ -37,7 +37,7 @@ export default function IndexPage() {
         <Spring>
           <div className="backgroundHover VIBEFEST_FONT">
             <h1>VIBEFEST「VOL. 3」</h1>
-            <h2>COMING SOON</h2>
+            <h2>OCTOBER 15TH</h2>
             <h3>
               <a href="https://vrchat.com/home/user/usr_622720da-7685-4595-b0b1-5574497b7d60">
                 IN VRCHAT
@@ -45,6 +45,32 @@ export default function IndexPage() {
               AND{" "}
               <a href="https://twitch.tv/VIBEFESTLIVE">STREAMED ON TWITCH</a>
             </h3>
+            <p>
+              <a href="https://discord.gg/9rJ5RKvn2J">JOIN OUR DISCORD</a>
+              <br />
+              <a href="https://vibefest.creator-spring.com/">
+                BUY THE CHARITY MERCH
+              </a>
+            </p>
+            <h4>LINEUP:</h4>
+            <p>
+              <p>Kotori</p>
+              <p>emy (DEBUT)</p>
+              <p>tropuwu</p>
+              <p>Paft Dunk</p>
+              <p>HOOBER (EX)</p>
+              <p>atham</p>
+              <p>nider</p>
+              <p>self</p>
+              <p>lost vco</p>
+              <p>inverted</p>
+              <p>saix</p>
+              <p>broken screen</p>
+              <p>velaspace</p>
+              <p>c0d3</p>
+              <p>Lake</p>
+              <p>gurg</p>
+            </p>
           </div>
         </Spring>
       </div>
