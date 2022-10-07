@@ -59,24 +59,26 @@ export default function IndexPage() {
                 BUY THE CHARITY MERCH
               </a>
             </p>
-            <h4>LINEUP:</h4>
+            <h4>LINEUP (times in PST):</h4>
             <p>
-              <p>Kotori</p>
-              <p>emy (DEBUT)</p>
-              <p>tropuwu</p>
-              <p>Paft Dunk</p>
-              <p>HOOBER (EX)</p>
-              <p>atham</p>
-              <p>nider</p>
-              <p>self</p>
-              <p>lost vco</p>
-              <p>inverted</p>
-              <p>saix (DJ SET)</p>
-              <p>broken screen</p>
-              <p>velaspace</p>
-              <p>c0d3 (DJ SET)</p>
-              <p>LAKE</p>
-              <p>gurg</p>
+              <p>12:00 : Tropuwu </p>
+              <p>12:35 : Paft Dunk</p>
+              <p>1:10 : Emy (DEBUT) </p>
+              <p>1:45 : Lake </p>
+              <p>2:20 : Atham </p>
+              <p>3:05 : Lost VCO </p>
+              <p>3:40 : RADIANT </p>
+              <p>4:15 : Self </p>
+              <p>4:50 : Inverted </p>
+              <p>5:25 : Velaspace </p>
+              <p>6:00 : Broken screen </p>
+              <p>6:50 : C0D3 (DJ SET) </p>
+              <p>7:25 : Gurg </p>
+              <p>8:00 : SAiX (DJ SET) </p>
+              <p>8:35 : HOOBER (EX)</p>
+              <p>9:10 : Kotori </p>
+              <p>10:00 : Rennocence </p>
+              <p>10:35 : Nider</p>
             </p>
           </div>
         </Spring>
