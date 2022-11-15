@@ -43,8 +43,7 @@ export default function IndexPage() {
 
         <Spring>
           <div className="backgroundHover VIBEFEST_FONT">
-            <h1>VIBEFEST「VOL. 3」</h1>
-            <h2>OCTOBER 15TH</h2>
+            <h1>VIBEFEST「VOL. 4」</h1>
             <h3>
               <a href="https://vrchat.com/home/user/usr_622720da-7685-4595-b0b1-5574497b7d60">
                 IN VRCHAT
@@ -58,28 +57,12 @@ export default function IndexPage() {
               <a href="https://vibefest.creator-spring.com/">
                 BUY THE CHARITY MERCH
               </a>
+              <br />
+              <a href="https://shop.vibefest.live/">
+                BUY THE CHARITY MERCH (Radio Vibefest.)
+              </a>
             </p>
-            <h4>LINEUP (times in PST):</h4>
-            <p>
-              <p>12:00 : Tropuwu </p>
-              <p>12:35 : Paft Dunk</p>
-              <p>1:10 : Emy (DEBUT) </p>
-              <p>1:45 : Lake </p>
-              <p>2:20 : Atham </p>
-              <p>3:05 : Lost VCO </p>
-              <p>3:40 : RADIANT </p>
-              <p>4:15 : Self </p>
-              <p>4:50 : Inverted </p>
-              <p>5:25 : Velaspace </p>
-              <p>6:00 : Broken screen </p>
-              <p>6:50 : C0D3 (DJ SET) </p>
-              <p>7:25 : Gurg </p>
-              <p>8:00 : SAiX (DJ SET) </p>
-              <p>8:35 : HOOBER (EX)</p>
-              <p>9:10 : Kotori </p>
-              <p>10:00 : Rennocence </p>
-              <p>10:35 : Nider</p>
-            </p>
+            <audio src="https://radio.vibefest.live/listen/radio_vibefest/hq.mp3" />
           </div>
         </Spring>
       </div>
