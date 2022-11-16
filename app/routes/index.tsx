@@ -69,7 +69,7 @@ export default function IndexPage() {
               title="Radio Vibefest. embed"
               frameBorder="0"
               allowTransparency={true}
-              style={{ width: "900%", minHeight: "150px", border: "0" }}
+              style={{ width: "90%", minHeight: "150px", border: "0" }}
             ></iframe>
           </div>
         </Spring>
