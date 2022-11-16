@@ -62,7 +62,15 @@ export default function IndexPage() {
                 BUY THE CHARITY MERCH (Radio Vibefest.)
               </a>
             </p>
-            <audio src="https://radio.vibefest.live/listen/radio_vibefest/hq.mp3" />
+
+            <h4>Radio Vibefest.</h4>
+            <iframe
+              src="https://radio.vibefest.live/public/radio_vibefest/embed?theme=dark"
+              title="Radio Vibefest. embed"
+              frameBorder="0"
+              allowTransparency={true}
+              style={{ width: "900%", minHeight: "150px", border: "0" }}
+            ></iframe>
           </div>
         </Spring>
       </div>
