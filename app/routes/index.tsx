@@ -45,7 +45,7 @@ export default function IndexPage() {
           <div className="backgroundHover VIBEFEST_FONT">
             <h1>VIBEFEST「VOL. 4」</h1>
             <h3>
-              <a href="https://vrchat.com/home/user/usr_622720da-7685-4595-b0b1-5574497b7d60">
+              <a href="https://vrc.group/VIBE.9162">
                 IN VRCHAT
               </a>{" "}
               AND{" "}
