@@ -53,6 +53,7 @@ export default function IndexPage() {
             </h3>
             <p>
               <a href="https://discord.gg/9rJ5RKvn2J">JOIN OUR DISCORD</a>
+              <a href="https://vrc.group/VIBE.9162">JOIN OUR VRCHAT GROUP: VIBE.9162</a>
               <br />
               <a href="https://vibefest.creator-spring.com/">
                 BUY THE CHARITY MERCH
