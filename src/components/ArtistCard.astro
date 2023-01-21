@@ -1,0 +1,36 @@
+---
+import Link from "./Link.astro";
+
+export interface Props {
+  // todo: don't any that
+  post: any;
+}
+
+const { post } = Astro.props as Props;
+---
+
+<div
+  class="mt-5 flex flex-row items-center justify-between gap-5 rounded-lg bg-neutral-900 p-3 transition-all hover:bg-neutral-800"
+>
+  <div>
+    <h1 class="text-xl font-bold">{post.frontmatter.title}</h1>
+    <p>
+      {
+        post.frontmatter.description.startsWith("@") ? (
+          <Link
+            href={`https://twitter.com/${post.frontmatter.description.slice(
+              1
+            )}`}
+          >
+            {post.frontmatter.description}
+          </Link>
+        ) : (
+          post.frontmatter.description
+        )
+      }
+    </p>
+    <p>Volumes: {post.frontmatter.volumes.join(", ")}</p>
+    <Link href={post.url}>Read more</Link>
+  </div>
+  <img src={post.frontmatter.image} class="h-24 rounded-lg" />
+</div>

@@ -1,0 +1,13 @@
+---
+export interface Props {
+  href: string | undefined;
+}
+
+const { href } = Astro.props as Props;
+---
+
+<a
+  href={href ?? "/"}
+  class="rounded-lg text-VIBEFEST transition-all hover:bg-VIBEFEST hover:p-1 hover:text-white"
+  ><slot /></a
+>

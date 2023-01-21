@@ -1,0 +1,47 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props as Props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="/global.css" />
+    <title>{title ? `VIBEFEST - ${title}` : "VIBEFEST"}</title>
+
+    <!-- SEO -->
+    <meta
+      property="og:title"
+      content={title ? `VIBEFEST - ${title}` : "VIBEFEST"}
+    />
+    <meta property="og:image" content="/images/VibefestFlower.png" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:description" content={description ?? "VIBEFEST"} />
+    <meta property="og:type" content="website" />
+
+    <meta name="theme-color" content="#e84270" media="not screen" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@VIBEFEST22" />
+    <meta
+      name="twitter:title"
+      content={title ? `VIBEFEST - ${title}` : "VIBEFEST"}
+    />
+    <meta name="twitter:description" content={description ?? "VIBEFEST"} />
+    <meta name="twitter:image" content="/images/VibefestFlower.png" />
+
+    <meta name="author" content="mmatt <matt@mmatt.net>" />
+    <meta property="description" content={description ?? "VIBEFEST"} />
+    <meta name="description" content={description ?? "VIBEFEST"} />
+  </head>
+  <body class="bg-black text-white">
+    <slot />
+  </body>
+</html>
