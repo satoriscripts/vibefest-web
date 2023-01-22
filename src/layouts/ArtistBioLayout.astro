@@ -47,7 +47,9 @@ const { frontmatter } = Astro.props;
       <div class="mt-5 text-center">
         <!-- TODO: vv change to main when merged -->
         <Link
-          href={`https://github.com/mmattbtw/vibefest-web/blob/v2/src/pages${Astro.url.pathname}.md`}
+          href={`https://github.com/mmattbtw/vibefest-web/blob/v2/src/pages/artists/${Astro.url.pathname
+            .replace("/artists/", "")
+            .replace("/", "")}.md`}
         >
           ✏️ Edit This Page
         </Link>
