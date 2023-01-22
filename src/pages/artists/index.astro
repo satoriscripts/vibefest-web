@@ -10,51 +10,59 @@ const allPosts = await Astro.glob("./*.md");
   description="Check out artists that have played at VIBEFEST!"
 >
   <div class="flex justify-center">
-    <div class="mt-48 max-w-2xl">
+    <div class="mt-48 mb-48 max-w-2xl">
       <h1 class="text-center font-VIBEFEST text-4xl font-bold">Artists</h1>
 
       <div class="mt-5">
         <h2 class="text-center font-VIBEFEST text-xl font-bold">Volume One</h2>
-        {
-          allPosts.map((post) => {
-            if (post.frontmatter.volumes.includes(1)) {
-              return <ArtistCard post={post} />;
-            }
-          })
-        }
+        <div class="grid grid-cols-2 gap-7">
+          {
+            allPosts.map((post) => {
+              if (post.frontmatter.volumes.includes(1)) {
+                return <ArtistCard post={post} />;
+              }
+            })
+          }
+        </div>
 
         <h2 class="mt-10 text-center font-VIBEFEST text-xl font-bold">
           Volume Two
         </h2>
-        {
-          allPosts.map((post) => {
-            if (post.frontmatter.volumes.includes(2)) {
-              return <ArtistCard post={post} />;
-            }
-          })
-        }
+        <div class="grid grid-cols-2 gap-7">
+          {
+            allPosts.map((post) => {
+              if (post.frontmatter.volumes.includes(2)) {
+                return <ArtistCard post={post} />;
+              }
+            })
+          }
+        </div>
 
         <h2 class="mt-10 text-center font-VIBEFEST text-xl font-bold">
           Volume Three
         </h2>
-        {
-          allPosts.map((post) => {
-            if (post.frontmatter.volumes.includes(3)) {
-              return <ArtistCard post={post} />;
-            }
-          })
-        }
+        <div class="grid grid-cols-2 gap-7">
+          {
+            allPosts.map((post) => {
+              if (post.frontmatter.volumes.includes(3)) {
+                return <ArtistCard post={post} />;
+              }
+            })
+          }
+        </div>
 
         <h2 class="mt-10 text-center font-VIBEFEST text-xl font-bold">
           Volume Four
         </h2>
-        {
-          allPosts.map((post) => {
-            if (post.frontmatter.volumes.includes(4)) {
-              return <ArtistCard post={post} />;
-            }
-          })
-        }
+        <div class="grid grid-cols-2 gap-7">
+          {
+            allPosts.map((post) => {
+              if (post.frontmatter.volumes.includes(4)) {
+                return <ArtistCard post={post} />;
+              }
+            })
+          }
+        </div>
       </div>
     </div>
   </div>

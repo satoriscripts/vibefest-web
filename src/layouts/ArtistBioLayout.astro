@@ -1,0 +1,57 @@
+---
+import Link from "../components/Link.astro";
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={`${frontmatter.title} - VIBEFEST Artist`}>
+  <div class="flex justify-center">
+    <div class="mt-48 mb-48 max-w-2xl">
+      <div class="mb-5 text-center">
+        <Link href="/artists">← Back to Artists</Link>
+      </div>
+      <div class="flex flex-col items-center justify-between gap-5 md:flex-row">
+        <div class="flex flex-col items-center">
+          <h1 class="text-center font-VIBEFEST text-2xl font-bold">
+            {frontmatter.title}
+          </h1>
+          <h2 class="text-center text-xl font-bold">
+            {
+              frontmatter.description.startsWith("@") ? (
+                <Link
+                  href={`https://twitter.com/${frontmatter.description.slice(
+                    1
+                  )}`}
+                >
+                  {frontmatter.description}
+                </Link>
+              ) : (
+                frontmatter.description
+              )
+            }
+          </h2>
+          <p class="font-semibold">
+            Volumes: {frontmatter.volumes.join(", ")}
+          </p>
+        </div>
+        <img src={frontmatter.image} class="h-56 rounded-lg" />
+      </div>
+
+      <hr class="mt-10" />
+      <div
+        class="prose prose-invert mt-10 max-w-6xl prose-a:text-white prose-a:underline prose-a:transition-all hover:prose-a:rounded hover:prose-a:bg-white hover:prose-a:p-0.5 hover:prose-a:text-black hover:prose-a:no-underline lg:prose-xl"
+      >
+        <slot />
+      </div>
+
+      <div class="mt-5 text-center">
+        <!-- TODO: vv change to main when merged -->
+        <Link
+          href={`https://github.com/mmattbtw/vibefest-web/blob/v2/src/pages/artists/${Astro.url.pathname}.md`}
+        >
+          ✏️ Edit This Page
+        </Link>
+      </div>
+    </div>
+  </div>
+</Layout>
