@@ -11,11 +11,11 @@ const { frontmatter } = Astro.props;
         <Link href="/artists">← Back to Artists</Link>
       </div>
       <div class="flex flex-col items-center justify-between gap-5 md:flex-row">
-        <div class="flex flex-col items-center">
-          <h1 class="text-center font-VIBEFEST text-2xl font-bold">
+        <div class="flex flex-col">
+          <h1 class="font-VIBEFEST text-2xl font-bold">
             {frontmatter.title}
           </h1>
-          <h2 class="text-center text-xl font-bold">
+          <h2 class="text-xl font-bold">
             {
               frontmatter.description.startsWith("@") ? (
                 <Link
